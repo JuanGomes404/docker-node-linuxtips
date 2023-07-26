@@ -1,16 +1,16 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/inductive-time-391916/cicd-teste', '.']
+    args: ['build', '-t', 'gcr.io/angular-app-cep/gin-prd', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/inductive-time-391916/cicd-teste']
+    args: ['push', 'gcr.io/angular-app-cep/gin-prd']
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'run'
       - 'deploy'
       - 'minha-aplicacao'
-      - '--image=gcr.io/inductive-time-391916/cicd-teste'
+      - '--image=gcr.io/angular-app-cep/gin-prd'
       - '--platform=managed'
-      - '--region=us-central1'
+      - '--region=us-central1-a'
       - '--allow-unauthenticated'
 options:
   logging: NONE
