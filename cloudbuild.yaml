@@ -1,14 +1,14 @@
 steps:
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['build', '-t', 'gcr.io/angular-app-cep/gin-prd', '.']
+    args: ['build', '-t', 'gcr.io/angular-app-cep/gin-prd-app', '.']
   - name: 'gcr.io/cloud-builders/docker'
-    args: ['push', 'gcr.io/angular-app-cep/gin-prd']
+    args: ['push', 'gcr.io/angular-app-cep/gin-prd-app']
   - name: 'gcr.io/cloud-builders/gcloud'
     args:
       - 'run'
       - 'deploy'
       - 'app-gin'
-      - '--image=gcr.io/angular-app-cep/gin-prd'
+      - '--image=gcr.io/angular-app-cep/gin-prd-app'
       - '--platform=managed'
       - '--region=us-central1'
       - '--allow-unauthenticated'
