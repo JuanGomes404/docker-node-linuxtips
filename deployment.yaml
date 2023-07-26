@@ -1,18 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dockercami
+  name: meu-app
   namespace: default
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      dockercami: web
+      app: meu-app
   template:
     metadata:
       labels:
-        dockercami: web
+        app: meu-app
     spec:
       containers:
-      - name: dockercami
-        image: camillamartins/dockernode
+        - name: meu-app
+          image: meu-usuario/meu-app:latest
+          ports:
+            - containerPort: 80
